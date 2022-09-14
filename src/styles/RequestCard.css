@@ -1,0 +1,37 @@
+.requestCard {
+	color: var(--secondary-accent-dark);
+}
+
+.requestCard li {
+	list-style: none;
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0.5rem;
+	background-color: white;
+	width: 300px;
+	border-radius: 24px;
+	/* padding: 1rem; */
+	line-height: 1.5;
+	min-height: 250px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.requestCard .titleBar {
+	background-color: var(--secondary-color);
+	padding: 1rem;
+	text-align: center;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+}
+
+.requestCard p {
+	padding-left: 1rem;
+	font-size: 1.1rem;
+}
+
+.requestCard li p:first-child {
+	font-size: 1.1rem;
+	font-weight: 700;
+	padding: 0;
+	color: white;
+}

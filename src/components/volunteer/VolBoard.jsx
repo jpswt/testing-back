@@ -4,11 +4,9 @@ import cookie from 'cookie';
 
 import Map from './Map';
 import SendRequest from './SendRequest';
+import OrgInfo from '../org/OrgsCard';
 
 import '../../styles/VolBoard.css';
-import OrgInfo from '../org/OrgsCard';
-// import NavBar from '../NavBar';
-
 import '../../styles/TimePicker.css';
 
 function VolBoard(props) {

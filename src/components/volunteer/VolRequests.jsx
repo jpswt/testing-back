@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import cookie from 'cookie';
 
-import TabsPanel from '../TabsPanel';
+import Voltabs from './VolTabs';
 import '../../styles/VolRequests.css';
 
 function VolRequests(props) {
@@ -16,7 +16,7 @@ function VolRequests(props) {
 	const [allRequests, setAllRequests] = useState([]);
 
 	useEffect(() => {
-		const { user } = props;
+		// const { user } = props;
 
 		axios
 			.get(`https://light-path.herokuapp.com/users/volRequest`, {
@@ -34,7 +34,7 @@ function VolRequests(props) {
 							accepted.push(requests);
 							break;
 						case 0:
-							accepted.push(declined);
+							declined.push(requests);
 							break;
 						default:
 							pending.push(requests);
@@ -54,14 +54,19 @@ function VolRequests(props) {
 			.catch((error) => {
 				console.log(error);
 			});
-	}, [user]);
+	}, [cookies.jwt]);
 
 	return (
 		<div>
 			<div className="volRequest">
 				<div className="content">
 					<div className="main">
-						<TabsPanel user={user} />
+						<Voltabs
+							user={user}
+							accepted={accepted}
+							declined={declined}
+							pending={pending}
+						/>
 					</div>
 				</div>
 			</div>

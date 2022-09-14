@@ -4,21 +4,22 @@ import ReactPaginate from 'react-paginate';
 
 import '../../styles/PendingRequests.css';
 
-function AcceptedRequests(props) {
-	const { accepted } = props;
-	console.log('Pending props: ', props.accepted);
+function PendingRequests(props) {
+	const { pending } = props;
+	console.log('Pending props: ', props.pending);
 
+	// const [requests, setRequests] = useState(0);
 	const [pageNumber, setPageNumber] = useState(0);
 
 	const requestsPerPage = 6;
 	const pageVisited = pageNumber * requestsPerPage;
-	const pageCount = Math.ceil(accepted.length / requestsPerPage);
+	const pageCount = Math.ceil(pending.length / requestsPerPage);
 
 	const changePage = ({ selected }) => {
 		setPageNumber(selected);
 	};
 
-	const displayRequests = accepted
+	const displayRequests = pending
 		.slice(pageVisited, pageVisited + requestsPerPage)
 		.map((requests, index) => {
 			let daySent = requests.created_on;
@@ -63,4 +64,4 @@ function AcceptedRequests(props) {
 	}
 }
 
-export default AcceptedRequests;
+export default PendingRequests;
