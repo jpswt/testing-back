@@ -76,6 +76,7 @@ function Register() {
 						type="tel"
 						label="Phone Number"
 						name="phone"
+						pattern="[0-9]{10}"
 						variant="outlined"
 						sx={{
 							'& .MuiInputLabel-root.Mui-focused': { color: 'black' },

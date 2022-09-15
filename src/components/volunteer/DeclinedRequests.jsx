@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RequestCard from './RequestCard';
 import ReactPaginate from 'react-paginate';
 
-import '../../styles/PendingRequests.css';
+import '../../styles/Requests.css';
 
 function DeclinedRequests(props) {
 	const { declined } = props;
@@ -29,7 +29,7 @@ function DeclinedRequests(props) {
 				'-' +
 				daySent.slice(0, 4);
 			return (
-				<div className="pendingReq" key={index}>
+				<div className="requestContainer" key={index}>
 					<ol>
 						<RequestCard
 							key={index}
@@ -47,10 +47,13 @@ function DeclinedRequests(props) {
 
 	if (props.declined.length === 0) {
 		return 'Currently no declined requests';
+	}
+	if (props.declined.length < 5) {
+		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (
 			<div>
-				<div className="test">{displayRequests}</div>
+				<div className="requestGrid">{displayRequests}</div>
 				<ReactPaginate
 					previousLabel={'<'}
 					nextLabel={'>'}

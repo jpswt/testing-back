@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import RequestCard from './RequestCard';
 import ReactPaginate from 'react-paginate';
 
-import '../../styles/PendingRequests.css';
+import '../../styles/Requests.css';
 
 function PendingRequests(props) {
 	const { pending } = props;
 	console.log('Pending props: ', props.pending);
 
-	// const [requests, setRequests] = useState(0);
 	const [pageNumber, setPageNumber] = useState(0);
 
 	const requestsPerPage = 6;
@@ -30,7 +29,7 @@ function PendingRequests(props) {
 				'-' +
 				daySent.slice(0, 4);
 			return (
-				<div className="pendingReq" key={index}>
+				<div className="requestContainer" key={index}>
 					<ol>
 						<RequestCard
 							key={index}
@@ -45,12 +44,15 @@ function PendingRequests(props) {
 				</div>
 			);
 		});
-	if (props.declined.length === 0) {
+	if (props.pending.length === 0) {
 		return 'Currently no declined requests';
+	}
+	if (props.pending.length < 5) {
+		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (
 			<div>
-				<div className="test">{displayRequests}</div>
+				<div className="requestGrid">{displayRequests}</div>
 				<ReactPaginate
 					previousLabel={'<'}
 					nextLabel={'>'}

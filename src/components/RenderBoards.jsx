@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import VolBoard from './volunteer/VolBoard';
 import NavBar from './NavBar';
-import OrgPage from './org/OrgPage';
+import OrgBoard from './org/OrgBoard';
 import axios from 'axios';
 import cookie from 'cookie';
 console.log(cookie.parse(document.cookie));
@@ -42,7 +42,13 @@ const RenderBoards = () => {
 			</div>
 		);
 	else {
-		if (user.isOrg === 1) return <OrgPage user={user} />;
+		if (user.isOrg === 1)
+			return (
+				<div>
+					<NavBar />
+					<OrgBoard user={user} />
+				</div>
+			);
 	}
 };
 

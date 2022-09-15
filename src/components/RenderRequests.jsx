@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import VolRequests from './volunteer/VolRequests';
 import NavBar from './NavBar';
-import OrgPage from './org/OrgPage';
+import OrgRequests from './org/OrgRequests';
 import axios from 'axios';
 import cookie from 'cookie';
 console.log(cookie.parse(document.cookie));
@@ -42,7 +42,12 @@ const RenderRequests = () => {
 			</div>
 		);
 	else {
-		if (user.isOrg === 1) return <OrgPage user={user} />;
+		return (
+			<div>
+				<NavBar />
+				<OrgRequests user={user} />
+			</div>
+		);
 	}
 };
 
