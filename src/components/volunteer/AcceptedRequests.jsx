@@ -45,7 +45,7 @@ function AcceptedRequests(props) {
 			);
 		});
 	if (props.accepted.length === 0) {
-		return 'Currently no declined requests';
+		return 'Currently no accepted requests';
 	}
 	if (props.accepted.length < 5) {
 		return <div className="requestGrid">{displayRequests}</div>;

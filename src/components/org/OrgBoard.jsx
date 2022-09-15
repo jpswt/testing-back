@@ -11,6 +11,7 @@ function OrgBoard(props) {
 	console.log('props are:', user);
 
 	const [allRequests, setAllRequests] = useState([]);
+	const [requestID, setRequestID] = useState('');
 
 	useEffect(() => {
 		axios
@@ -31,6 +32,10 @@ function OrgBoard(props) {
 				console.log(error);
 			});
 	}, [cookies.jwt]);
+
+	// const handleAccept = (e) => {
+	// 	axios.put(`https://light-path.herokuapp.com/users/acceptReq/:id`);
+	// };
 
 	return (
 		<div>

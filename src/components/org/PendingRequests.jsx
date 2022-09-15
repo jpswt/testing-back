@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RequestCard from './RequestCard';
+import OrgRequestCard from './OrgRequestCard';
 import ReactPaginate from 'react-paginate';
 
 import '../../styles/Requests.css';
@@ -31,9 +31,10 @@ function PendingRequests(props) {
 			return (
 				<div className="requestContainer" key={index}>
 					<ol>
-						<RequestCard
+						<OrgRequestCard
 							key={index}
 							name={requests.name}
+							email={requests.email}
 							org_id={requests.org_id}
 							start_time={requests.start_time}
 							time_span={requests.time_span}

@@ -21,6 +21,7 @@ function LatestRequests(props) {
 					<OrgRequestCard
 						key={index}
 						name={requests.name}
+						email={requests.email}
 						request_id={requests.id}
 						start_time={requests.start_time}
 						time_span={requests.time_span}

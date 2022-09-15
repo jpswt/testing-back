@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import RequestCard from './RequestCard';
+import OrgRequestCard from './OrgRequestCard';
 import ReactPaginate from 'react-paginate';
 
 import '../../styles/Requests.css';
 
-function PendingRequests(props) {
-	const { pending } = props;
-	console.log('Pending props: ', props.pending);
+function AcceptedRequests(props) {
+	const { accepted } = props;
+	console.log('Pending props: ', props.accepted);
 
 	const [pageNumber, setPageNumber] = useState(0);
 
 	const requestsPerPage = 6;
 	const pageVisited = pageNumber * requestsPerPage;
-	const pageCount = Math.ceil(pending.length / requestsPerPage);
+	const pageCount = Math.ceil(accepted.length / requestsPerPage);
 
 	const changePage = ({ selected }) => {
 		setPageNumber(selected);
 	};
 
-	const displayRequests = pending
+	const displayRequests = accepted
 		.slice(pageVisited, pageVisited + requestsPerPage)
 		.map((requests, index) => {
 			let daySent = requests.created_on;
@@ -31,9 +31,10 @@ function PendingRequests(props) {
 			return (
 				<div className="requestContainer" key={index}>
 					<ol>
-						<RequestCard
+						<OrgRequestCard
 							key={index}
 							name={requests.name}
+							email={requests.email}
 							org_id={requests.org_id}
 							start_time={requests.start_time}
 							time_span={requests.time_span}
@@ -44,10 +45,10 @@ function PendingRequests(props) {
 				</div>
 			);
 		});
-	if (props.pending.length === 0) {
-		return 'Currently no pending requests';
+	if (props.accepted.length === 0) {
+		return 'Currently no accepted requests';
 	}
-	if (props.pending.length < 5) {
+	if (props.accepted.length < 5) {
 		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (
@@ -66,4 +67,4 @@ function PendingRequests(props) {
 	}
 }
 
-export default PendingRequests;
+export default AcceptedRequests;
