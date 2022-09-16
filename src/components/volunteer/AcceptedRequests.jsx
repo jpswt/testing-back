@@ -35,6 +35,7 @@ function AcceptedRequests(props) {
 							key={index}
 							name={requests.name}
 							org_id={requests.org_id}
+							start_date={requests.start_date}
 							start_time={requests.start_time}
 							time_span={requests.time_span}
 							message={requests.message}

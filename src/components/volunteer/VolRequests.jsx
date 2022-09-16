@@ -16,8 +16,6 @@ function VolRequests(props) {
 	const [allRequests, setAllRequests] = useState([]);
 
 	useEffect(() => {
-		// const { user } = props;
-
 		axios
 			.get(`https://light-path.herokuapp.com/users/volRequest`, {
 				headers: {
@@ -61,12 +59,14 @@ function VolRequests(props) {
 			<div className="volRequest">
 				<div className="content">
 					<div className="main">
-						<Voltabs
-							user={user}
-							accepted={accepted}
-							declined={declined}
-							pending={pending}
-						/>
+						<div>
+							<Voltabs
+								user={user}
+								accepted={accepted}
+								declined={declined}
+								pending={pending}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

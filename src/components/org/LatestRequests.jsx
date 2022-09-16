@@ -23,6 +23,7 @@ function LatestRequests(props) {
 						name={requests.name}
 						email={requests.email}
 						request_id={requests.id}
+						start_date={requests.start_date}
 						start_time={requests.start_time}
 						time_span={requests.time_span}
 						message={requests.message}

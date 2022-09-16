@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TimePicker from 'react-time-picker';
+import DatePicker from 'react-date-picker';
 import cookie from 'cookie';
 import axios from 'axios';
 
@@ -13,6 +14,8 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { FaRegHandPeace } from 'react-icons/fa';
 
 import '../../styles/TimePicker.css';
+import '../../styles/DatePicker.css';
+import '../../styles/Calendar.css';
 import '../../styles/SendRequest.css';
 
 const style = {
@@ -31,11 +34,13 @@ function SendRequest(props) {
 	const cookies = cookie.parse(document.cookie);
 	const { handleClose, selectOrg, open } = props;
 	const [value, onChange] = useState('');
+	const [date, onChangeDate] = useState(new Date());
 	const [message, setMessage] = useState('');
 	const [select, setSelect] = useState('');
 	const [statusMsg, setStatusMsg] = useState('');
 	console.log('cookies are:', cookies);
 	console.log('PopUp', selectOrg.id);
+	console.log('Date Value', date);
 	console.log('time value', value);
 	console.log('Time Span is:', select);
 	console.log('My Message is:', message);
@@ -50,6 +55,29 @@ function SendRequest(props) {
 
 		return finalTime;
 	};
+
+	const convertDate = () => {
+		let str = date.toString();
+		let parts = str.split(' ');
+		let months = {
+			Jan: '01',
+			Feb: '02',
+			Mar: '03',
+			Apr: '04',
+			May: '05',
+			Jun: '06',
+			Jul: '07',
+			Aug: '08',
+			Sep: '09',
+			Oct: '10',
+			Nov: '11',
+			Dec: '12',
+		};
+		let finalDate = `${months[parts[1]]}-${parts[2]}-${parts[3]}`;
+		return finalDate;
+	};
+
+	console.log('Final Date: ', convertDate(date));
 
 	const handleInput = (e) => {
 		setMessage(e.target.value);
@@ -67,6 +95,7 @@ function SendRequest(props) {
 				'https://light-path.herokuapp.com/users/sendRequest',
 				{
 					org_id: selectOrg.id,
+					start_date: convertDate(),
 					start_time: convertTime(),
 					time_span: select,
 					message: message,
@@ -79,13 +108,14 @@ function SendRequest(props) {
 				setTimeout(() => {
 					setStatusMsg('');
 					handleClose();
-				}, 3000);
+				}, 2000);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 
-		onChange('12:00');
+		onChange('');
+		onChangeDate(new Date());
 		setSelect('');
 		setMessage('');
 	};
@@ -101,7 +131,15 @@ function SendRequest(props) {
 				<Box sx={style} className="modalStyles">
 					<h3>Send a Spark to: {selectOrg.name}</h3>
 					<form onSubmit={handleRequest}>
-						<p>When are you available?</p>
+						<p>What day are you available?</p>
+						<DatePicker
+							onChange={onChangeDate}
+							value={date}
+							calendarIcon={null}
+							clearIcon={null}
+							format="M-d-y"
+						/>
+						<p>When time are you available?</p>
 						<TimePicker
 							required
 							onChange={onChange}
