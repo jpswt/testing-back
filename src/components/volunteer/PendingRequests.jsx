@@ -52,7 +52,7 @@ function PendingRequests(props) {
 		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (
-			<div>
+			<div className="requestContent">
 				<div className="requestGrid">{displayRequests}</div>
 				<ReactPaginate
 					previousLabel={'<'}

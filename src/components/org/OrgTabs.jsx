@@ -42,7 +42,7 @@ function a11yProps(index) {
 }
 
 export default function OrgTabs(props) {
-	const { user, accepted, declined, pending } = props;
+	const { user, accepted, declined, pending, handleAccept } = props;
 	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
@@ -82,7 +82,7 @@ export default function OrgTabs(props) {
 				</Tabs>
 			</Box>
 			<TabPanel value={value} index={0}>
-				<PendingRequests pending={pending} />
+				<PendingRequests pending={pending} handleAccept={handleAccept} />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
 				<AcceptedRequests accepted={accepted} />

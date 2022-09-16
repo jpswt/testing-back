@@ -59,14 +59,12 @@ function VolRequests(props) {
 			<div className="volRequest">
 				<div className="content">
 					<div className="main">
-						<div>
-							<Voltabs
-								user={user}
-								accepted={accepted}
-								declined={declined}
-								pending={pending}
-							/>
-						</div>
+						<Voltabs
+							user={user}
+							accepted={accepted}
+							declined={declined}
+							pending={pending}
+						/>
 					</div>
 				</div>
 			</div>

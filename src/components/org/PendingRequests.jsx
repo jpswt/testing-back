@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 import '../../styles/Requests.css';
 
 function PendingRequests(props) {
-	const { pending } = props;
+	const { pending, handleAccept } = props;
 	console.log('Pending props: ', props.pending);
 
 	const [pageNumber, setPageNumber] = useState(0);
@@ -33,6 +33,7 @@ function PendingRequests(props) {
 					<ol>
 						<OrgRequestCard
 							key={index}
+							id={requests.id}
 							name={requests.name}
 							email={requests.email}
 							org_id={requests.org_id}
@@ -41,6 +42,7 @@ function PendingRequests(props) {
 							time_span={requests.time_span}
 							message={requests.message}
 							created_on={date}
+							handleAccept={handleAccept}
 						/>
 					</ol>
 				</div>

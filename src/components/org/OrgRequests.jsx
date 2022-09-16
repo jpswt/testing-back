@@ -13,10 +13,9 @@ function VolRequests(props) {
 	const [accepted, setAccepted] = useState([]);
 	const [declined, setDeclined] = useState([]);
 	const [pending, setPending] = useState([]);
+	const [getId, setId] = useState('');
 
-	useEffect(() => {
-		// const { user } = props;
-
+	const getRequests = () => {
 		axios
 			.get(`https://light-path.herokuapp.com/users/orgRequest`, {
 				headers: {
@@ -52,7 +51,66 @@ function VolRequests(props) {
 			.catch((error) => {
 				console.log(error);
 			});
-	}, [cookies.jwt]);
+	};
+
+	useEffect(() => {
+		getRequests();
+	}, []);
+
+	// useEffect(() => {
+	// 	axios
+	// 		.get(`https://light-path.herokuapp.com/users/orgRequest`, {
+	// 			headers: {
+	// 				Authorization: cookies.jwt,
+	// 			},
+	// 		})
+	// 		.then((response) => {
+	// 			let accepted = [];
+	// 			let declined = [];
+	// 			let pending = [];
+	// 			response.data.map((requests) => {
+	// 				switch (requests.accepted) {
+	// 					case 1:
+	// 						accepted.push(requests);
+	// 						break;
+	// 					case 0:
+	// 						declined.push(requests);
+	// 						break;
+	// 					default:
+	// 						pending.push(requests);
+	// 						break;
+	// 				}
+	// 			});
+	// 			setAccepted(accepted);
+	// 			setDeclined(declined);
+	// 			setPending(pending);
+
+	// 			console.log(response.data);
+	// 			console.log('pending', pending);
+	// 			console.log('accepted', accepted);
+	// 			console.log('declined', declined);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log(error);
+	// 		});
+	// }, [cookies.jwt]);
+
+	const handleAccept = (e) => {
+		axios
+			.put(
+				`https://light-path.herokuapp.com/users/acceptReq`,
+				{
+					id: e.target.id,
+				},
+				{ headers: { Authorization: cookies.jwt } }
+			)
+			.then(() => {
+				getRequests();
+			})
+			.catch((err) => {
+				console.log('Accept Error', err);
+			});
+	};
 
 	return (
 		<div>
@@ -64,6 +122,7 @@ function VolRequests(props) {
 							accepted={accepted}
 							declined={declined}
 							pending={pending}
+							handleAccept={handleAccept}
 						/>
 					</div>
 				</div>

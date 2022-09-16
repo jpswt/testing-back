@@ -133,6 +133,7 @@ function SendRequest(props) {
 					<form onSubmit={handleRequest}>
 						<p>What day are you available?</p>
 						<DatePicker
+							required
 							onChange={onChangeDate}
 							value={date}
 							calendarIcon={null}
