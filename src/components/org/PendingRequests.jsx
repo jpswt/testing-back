@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 import '../../styles/Requests.css';
 
 function PendingRequests(props) {
-	const { pending, handleAccept } = props;
+	const { pending, handleAccept, handleDecline } = props;
 	console.log('Pending props: ', props.pending);
 
 	const [pageNumber, setPageNumber] = useState(0);
@@ -43,6 +43,7 @@ function PendingRequests(props) {
 							message={requests.message}
 							created_on={date}
 							handleAccept={handleAccept}
+							handleDecline={handleDecline}
 						/>
 					</ol>
 				</div>

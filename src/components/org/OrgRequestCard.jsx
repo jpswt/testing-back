@@ -12,6 +12,7 @@ function OrgRequestCard(props) {
 		message,
 		created_on,
 		handleAccept,
+		handleDecline,
 	} = props;
 	console.log('RequestCard props: ', props);
 	let orgTitle = name.toUpperCase();
@@ -31,6 +32,9 @@ function OrgRequestCard(props) {
 				{/* <p>Message:{message}</p> */}
 				<button id={id} name="accept" onClick={handleAccept}>
 					Accept
+				</button>
+				<button id={id} name="accept" onClick={handleDecline}>
+					Decline
 				</button>
 			</li>
 		</div>

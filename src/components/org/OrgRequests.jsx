@@ -112,6 +112,23 @@ function VolRequests(props) {
 			});
 	};
 
+	const handleDecline = (e) => {
+		axios
+			.put(
+				`https://light-path.herokuapp.com/users/declineReq`,
+				{
+					id: e.target.id,
+				},
+				{ headers: { Authorization: cookies.jwt } }
+			)
+			.then(() => {
+				getRequests();
+			})
+			.catch((err) => {
+				console.log('Decline Error', err);
+			});
+	};
+
 	return (
 		<div>
 			<div className="volRequest">
@@ -123,6 +140,7 @@ function VolRequests(props) {
 							declined={declined}
 							pending={pending}
 							handleAccept={handleAccept}
+							handleDecline={handleDecline}
 						/>
 					</div>
 				</div>
