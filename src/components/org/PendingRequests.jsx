@@ -52,7 +52,7 @@ function PendingRequests(props) {
 	if (props.pending.length === 0) {
 		return 'Currently no pending requests';
 	}
-	if (props.pending.length < 5) {
+	if (props.pending.length < 7) {
 		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (

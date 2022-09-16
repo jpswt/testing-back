@@ -49,7 +49,7 @@ function AcceptedRequests(props) {
 	if (props.accepted.length === 0) {
 		return 'Currently no accepted requests';
 	}
-	if (props.accepted.length < 5) {
+	if (props.accepted.length < 7) {
 		return <div className="requestGrid">{displayRequests}</div>;
 	} else {
 		return (
