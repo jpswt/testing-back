@@ -9,6 +9,7 @@
 .volRequest h3 {
 	color: var(--nav-color);
 	margin-bottom: 0.8rem;
+	font-family: var(--ff-title);
 }
 
 .volRequest .content {

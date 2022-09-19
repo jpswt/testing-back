@@ -3,16 +3,29 @@
 }
 
 .orgsCard li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	list-style: none;
 	font-size: 1rem;
 	font-weight: 500;
 	margin: 0.5rem;
-	background-color: white;
+	border-radius: 24px;
+	background: rgb(87, 162, 167);
+	background: rgb(77, 145, 162);
+	background: radial-gradient(
+		circle,
+		rgba(77, 145, 162, 1) 0%,
+		rgba(65, 124, 139, 1) 86%
+	);
+	/* background-color: hsla(192, 36%, 40%, 1); */
+	color: white;
 	width: 450px;
 	padding: 1rem;
-	line-height: 1.5;
+	line-height: 1.6;
 	min-height: 270px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .orgsCard li p:first-child {
@@ -28,17 +41,23 @@
 }
 
 .orgsCard li button {
-	padding: 0.8rem;
-	background-color: var(--secondary-color);
-	border: none;
+	padding: 0.4rem;
+	background-color: hsla(22, 86%, 57%, 0.85);
+
+	border-color: hsla(22, 84%, 57%, 0.9);
 	border-radius: 4px;
-	width: 130px;
+	width: 150px;
 	color: white;
 	font-size: 1.2rem;
-	transition: transform 0.3s;
 	cursor: pointer;
 }
 
 .orgsCard li button:hover {
-	transform: scale(1.1);
+	background-color: hsla(22, 86%, 57%, 0.8);
+	border-color: hsla(22, 84%, 57%, 0.6);
+	/* background-color: transparent; */
+	/* border: 2px white solid; */
+
+	/* background-color: lightgray; */
+	/* transform: scale(1.1); */
 }

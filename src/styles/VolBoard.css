@@ -9,6 +9,9 @@
 .volBoard h3 {
 	color: var(--nav-color);
 	margin-bottom: 0.8rem;
+	font-family: var(--ff-title);
+	font-weight: 700;
+	font-size: 2rem;
 }
 
 .volBoard .content {

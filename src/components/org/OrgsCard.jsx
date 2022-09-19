@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
+import { ImFire } from 'react-icons/im';
 
 import '../../styles/OrgsCard.css';
 
@@ -17,6 +18,15 @@ const OrgInfo = (props) => {
 		selectOrg,
 	} = props;
 	console.log('ID and select org', selectOrg.id);
+
+	const phoneConvert = () => {
+		let formatPhone = `${phone.slice(0, 3)}-${phone.slice(3, 6)}-${phone.slice(
+			6,
+			10
+		)}`;
+		return formatPhone;
+	};
+
 	return (
 		<div className="orgsCard">
 			<li>
@@ -26,7 +36,7 @@ const OrgInfo = (props) => {
 					<FaPhoneAlt
 						style={{ marginRight: '10px', paddingTop: '4px', width: '12px' }}
 					/>
-					{phone}
+					{phoneConvert()}
 				</p>
 				<p>
 					<FaEnvelope
@@ -42,7 +52,9 @@ const OrgInfo = (props) => {
 							handleOpen(e);
 						}}
 					>
-						Send Spark
+						<span>
+							Send Spark <ImFire />
+						</span>
 					</button>
 				</div>
 			</li>

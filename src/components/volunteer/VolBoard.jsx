@@ -50,7 +50,6 @@ function VolBoard(props) {
 
 	return (
 		<div>
-			{/* <NavBar /> */}
 			<div className="volBoard">
 				<div className="content">
 					<div className="main">

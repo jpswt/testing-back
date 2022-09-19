@@ -67,7 +67,7 @@
 
 .login .col-2 .logo {
 	width: 130px;
-	padding: 1.5rem 0.5rem 0 0.5rem;
+	padding: 1.5rem 0.5rem 0 0;
 	/* height: auto; */
 }
 
@@ -92,13 +92,19 @@
 }
 
 @media screen and (max-width: 940px) {
+	.login {
+		height: 100vh;
+	}
 	.login .content {
 		grid-template-columns: 1fr;
 	}
 
 	.login .content {
 		width: 100%;
-		height: unset;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.login .content .image {

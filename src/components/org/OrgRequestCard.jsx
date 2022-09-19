@@ -1,5 +1,8 @@
 import React from 'react';
+import { Button } from '@mui/material';
 import '../../styles/RequestCard.css';
+import { AiOutlineCheckSquare } from 'react-icons/ai';
+import { MdCancelPresentation } from 'react-icons/md';
 
 function OrgRequestCard(props) {
 	const {
@@ -13,32 +16,121 @@ function OrgRequestCard(props) {
 		created_on,
 		handleAccept,
 		handleDecline,
+		accepted,
 	} = props;
 	console.log('RequestCard props: ', props);
 	let orgTitle = name.toUpperCase();
 
-	return (
-		<div className="requestCard" name={id}>
-			<li>
-				<div className="titleBar">
-					<p>{orgTitle}</p>
-				</div>
-				<p>ID: {id}</p>
-				{/* <p>Email: {email}</p> */}
-				<p>Sent on: {created_on}</p>
-				<p>Start Date: {start_date}</p>
-				<p>Start Time: {start_time}</p>
-				<p>Available for: {time_span}</p>
-				{/* <p>Message:{message}</p> */}
-				<button id={id} name="accept" onClick={handleAccept}>
-					Accept
-				</button>
-				<button id={id} name="accept" onClick={handleDecline}>
-					Decline
-				</button>
-			</li>
-		</div>
-	);
+	if (accepted === null) {
+		return (
+			<div className="requestCard" name={id}>
+				<li>
+					<div className="titleBar">
+						<p>{orgTitle}</p>
+					</div>
+					{/* <p>Email: {email}</p> */}
+					<p>
+						<span>Sent on:</span> {created_on}
+					</p>
+					<p>
+						<span>Start Date: </span>
+						{start_date}
+					</p>
+					<p>
+						<span>Start Time:</span> {start_time}
+					</p>
+					<p>
+						<span>Available for:</span> {time_span}
+					</p>
+					<p>
+						<span>Message:</span>
+						{message}
+					</p>
+					<div>
+						<div className="buttonContainer">
+							<Button
+								variant="contained"
+								className="accept"
+								onClick={handleAccept}
+								endIcon={<AiOutlineCheckSquare />}
+								// endIcon={<FaRegHandPeace />}
+								// sx={{
+								// 	backgroundColor: 'var(--secondary-color)',
+								// 	padding: '.25rem .5rem',
+								// 	width: '5rem',
+								// }}
+								id={id}
+								name="accept"
+							>
+								Accept
+							</Button>
+							<Button
+								variant="contained"
+								className="decline"
+								onClick={handleDecline}
+								endIcon={<MdCancelPresentation />}
+								// endIcon={<FaRegHandPeace />}
+								// sx={{
+								// 	backgroundColor: 'var(--secondary-color)',
+								// 	padding: '.25rem .5rem',
+								// 	width: '5rem',
+								// }}
+								id={id}
+								name="decline"
+							>
+								Decline
+							</Button>
+						</div>
+					</div>
+				</li>
+			</div>
+		);
+	} else {
+		return (
+			<div className="requestCard" name={id}>
+				<li>
+					<div className="titleBar">
+						<p>{orgTitle}</p>
+					</div>
+					{/* <p>Email: {email}</p> */}
+					<p>
+						<span>Sent on:</span> {created_on}
+					</p>
+					<p>
+						<span>Start Date:</span> {start_date}
+					</p>
+					<p>
+						<span>Start Time: </span>
+						{start_time}
+					</p>
+					<p>
+						<span>Available for: </span>
+						{time_span}
+					</p>
+					<p>
+						<span>Message:</span> {message}
+					</p>
+
+					<p></p>
+				</li>
+			</div>
+		);
+	}
 }
 
 export default OrgRequestCard;
+
+{
+	/* <Button
+variant="contained"
+onClick={handleClose}
+endIcon={<FaRegHandPeace />}
+sx={{
+	backgroundColor: 'var(--secondary-color)',
+	padding: '.5rem 1rem',
+	width: '6rem',
+}}
+>
+Close
+</Button> */
+}

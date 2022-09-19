@@ -13,7 +13,6 @@ function VolRequests(props) {
 	const [accepted, setAccepted] = useState([]);
 	const [declined, setDeclined] = useState([]);
 	const [pending, setPending] = useState([]);
-	const [getId, setId] = useState('');
 
 	const getRequests = () => {
 		axios
@@ -56,44 +55,6 @@ function VolRequests(props) {
 	useEffect(() => {
 		getRequests();
 	}, []);
-
-	// useEffect(() => {
-	// 	axios
-	// 		.get(`https://light-path.herokuapp.com/users/orgRequest`, {
-	// 			headers: {
-	// 				Authorization: cookies.jwt,
-	// 			},
-	// 		})
-	// 		.then((response) => {
-	// 			let accepted = [];
-	// 			let declined = [];
-	// 			let pending = [];
-	// 			response.data.map((requests) => {
-	// 				switch (requests.accepted) {
-	// 					case 1:
-	// 						accepted.push(requests);
-	// 						break;
-	// 					case 0:
-	// 						declined.push(requests);
-	// 						break;
-	// 					default:
-	// 						pending.push(requests);
-	// 						break;
-	// 				}
-	// 			});
-	// 			setAccepted(accepted);
-	// 			setDeclined(declined);
-	// 			setPending(pending);
-
-	// 			console.log(response.data);
-	// 			console.log('pending', pending);
-	// 			console.log('accepted', accepted);
-	// 			console.log('declined', declined);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log(error);
-	// 		});
-	// }, [cookies.jwt]);
 
 	const handleAccept = (e) => {
 		axios

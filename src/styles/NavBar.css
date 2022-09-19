@@ -22,6 +22,10 @@
 	margin: auto;
 	height: 100%;
 	padding: 0 1rem;
+
+	font-family: var(--ff-title);
+	font-weight: 700;
+	font-size: 1.4rem;
 }
 
 .header .nav-menu a {

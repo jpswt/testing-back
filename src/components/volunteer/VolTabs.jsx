@@ -52,6 +52,7 @@ export default function VolTabs(props) {
 		<Box sx={{ width: '100%' }}>
 			<Box
 				sx={{
+					paddingBottom: 1,
 					borderBottom: 1,
 					// borderColor: 'var(--secondary-color)',
 					display: 'inline-flex',
@@ -70,6 +71,23 @@ export default function VolTabs(props) {
 					variant="scrollable"
 					scrollButtons="auto"
 					allowScrollButtonsMobile
+					sx={{
+						'& .MuiButtonBase-root.MuiTab-root': {
+							fontSize: 15,
+							color: 'var(--nav-color)',
+						},
+						'& .MuiButtonBase-root.MuiTab-root:hover': {
+							fontSize: 15,
+							color: 'var(--secondary-dark)',
+						},
+						'& button': {
+							borderTopLeftRadius: '12px',
+							borderTopRightRadius: '12px',
+						},
+						// '& button:hover': { color: 'white' },
+						// '& button:focus': { backgroundColor: 'red' },
+						// '& button:active': { backgroundColor: 'inherit' },
+					}}
 					aria-label="scrollable auto tabs example"
 					TabIndicatorProps={{
 						style: { background: 'var(--secondary-color)' },

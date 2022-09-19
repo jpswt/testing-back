@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import '../styles/Login.css';
-import logoBW from '../images/logo-bw.png';
+import logoBW from '../images/lampbw-sm.png';
 import loginImg from '../images/loginImg.jpg';
 import axios from 'axios';
 
