@@ -38,6 +38,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 3rem;
+	cursor: pointer;
 }
 
 .orgsCard li button {
@@ -49,12 +50,14 @@
 	width: 150px;
 	color: white;
 	font-size: 1.2rem;
+	transition: ease-out 0.3s;
 	cursor: pointer;
 }
 
 .orgsCard li button:hover {
 	background-color: hsla(22, 86%, 57%, 0.8);
 	border-color: hsla(22, 84%, 57%, 0.6);
+
 	/* background-color: transparent; */
 	/* border: 2px white solid; */
 

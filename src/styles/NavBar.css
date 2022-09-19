@@ -30,6 +30,7 @@
 
 .header .nav-menu a {
 	color: #ffffff;
+	cursor: pointer;
 }
 
 .header .navbar img {
@@ -50,6 +51,7 @@
 .header .nav-item a:hover {
 	padding-bottom: 12px;
 	border-bottom: 3px solid var(--primary-dark);
+	cursor: pointer;
 }
 
 .hamburger {

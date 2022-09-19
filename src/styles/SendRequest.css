@@ -16,6 +16,10 @@ h3 {
 	margin-top: 2rem;
 }
 
+.btnHover:hover {
+	background-color: hsl(192, 36%, 50%);
+}
+
 .statusMsg {
 	display: flex;
 	align-items: center;
