@@ -11,13 +11,16 @@
 	width: 300px;
 	border-radius: 24px;
 	/* padding: 1rem; */
-	line-height: 1.6;
+	line-height: 1.5;
 	min-height: 250px;
 	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .requestCard .titleBar {
-	background-color: var(--secondary-color);
+	background: linear-gradient(
+		rgba(65, 124, 139, 1) 0%,
+		rgba(77, 145, 162, 1) 86%
+	);
 	padding: 1rem;
 	text-align: center;
 	border-top-left-radius: 24px;
@@ -62,8 +65,4 @@
 
 .requestCard .accept:hover {
 	background-color: hsl(160, 70%, 35%);
-}
-
-.requestCard .status {
-	color: red;
 }

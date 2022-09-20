@@ -43,8 +43,7 @@ function OrgRequestCard(props) {
 						<span>Available for:</span> {time_span}
 					</p>
 					<p>
-						<span>Message:</span>
-						{message}
+						<span>View Details</span>
 					</p>
 					<div>
 						<div className="buttonContainer">
@@ -53,12 +52,6 @@ function OrgRequestCard(props) {
 								className="accept"
 								onClick={handleAccept}
 								endIcon={<AiOutlineCheckSquare />}
-								// endIcon={<FaRegHandPeace />}
-								// sx={{
-								// 	backgroundColor: 'var(--secondary-color)',
-								// 	padding: '.25rem .5rem',
-								// 	width: '5rem',
-								// }}
 								id={id}
 								name="accept"
 							>
@@ -69,12 +62,6 @@ function OrgRequestCard(props) {
 								className="decline"
 								onClick={handleDecline}
 								endIcon={<MdCancelPresentation />}
-								// endIcon={<FaRegHandPeace />}
-								// sx={{
-								// 	backgroundColor: 'var(--secondary-color)',
-								// 	padding: '.25rem .5rem',
-								// 	width: '5rem',
-								// }}
 								id={id}
 								name="decline"
 							>

@@ -190,30 +190,21 @@ function SendRequest(props) {
 								endIcon={<AiOutlineSend />}
 								className="btnStyles"
 								sx={{
-									'backgroundColor': 'var(--secondary-color)',
-									'padding': '.5rem 1rem',
-									'width': '6rem',
-									'&:hover': {
-										backgroundColor: 'hsl(192, 36%, 45%)',
-									},
-									'transition': 'ease-out .3s',
+									backgroundColor: 'var(--secondary-color)',
+									padding: '.5rem 1rem',
+									width: '6rem',
 								}}
 							>
 								Send
 							</Button>
 							<Button
-								className="btnHover"
 								variant="contained"
 								onClick={handleClose}
 								endIcon={<FaRegHandPeace />}
 								sx={{
-									'backgroundColor': 'var(--secondary-color)',
-									'padding': '.5rem 1rem',
-									'width': '6rem',
-									'&:hover': {
-										backgroundColor: 'hsl(192, 36%, 45%)',
-									},
-									'transition': 'ease-out .3s',
+									backgroundColor: 'var(--secondary-color)',
+									padding: '.5rem 1rem',
+									width: '6rem',
 								}}
 							>
 								Close
